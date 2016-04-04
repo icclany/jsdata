@@ -10,18 +10,23 @@ app.config(function($stateProvider) {
 				so that the author field of the posts will be automatically 
 				populated
 		*/
+		resolve: {
+			allUsers: function(User) {
+				return User.findAll({})
+			}
+		}
 	})
 });
 
 // add necessary dependencies 
-app.controller('PostCtrl', function() {
+app.controller('PostCtrl', function(allUsers, $scope, Post, $stateParams) {
 
 
 	/* 1. FIND POST
 		use state params to retrieve the post id and attach post object to scope 
 		on controller load 
 	*/
-
+	$scope.post = Post.find($stateParams.postId);
 
 	/*
 		2. EDIT POST 
