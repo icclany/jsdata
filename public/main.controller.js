@@ -36,7 +36,7 @@ app.config(function($stateProvider) {
   )
 });
 
-app.controller('MainController', function($scope, posts, Post) {
+app.controller('MainController', function($scope, posts) {
 
   /*
 		TODOS: 

@@ -11,8 +11,11 @@ app.config(function($stateProvider) {
 				populated
 		*/
 		resolve: {
-			allUsers: function(User) {
-				return User.findAll({})
+			// allUsers: function(User) {
+			// 	return User.findAll({})
+			postUser: function(User, $stateParams) {
+				return User.find($state.params.authorId)
+			// }
 			}
 		}
 	})
